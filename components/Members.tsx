@@ -168,7 +168,7 @@ const GuestsCarousel = () => {
                   "w-[380px] md:w-[500px] text-center cursor-pointer will-change-transform shadow-[0_0_60px_rgba(255,255,255,0.12)]",
                 ].join(" ")}
                 whileHover={{ scale: 1.04 }}
-                transition={{ type: "spring", stiffness: 180, damping: 22 }}
+                transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
                 onMouseEnter={() => handleCardOpen(index)}
                 onMouseLeave={() => handleCardClose()}
                 onClick={() => (isExpanded ? handleCardClose() : handleCardOpen(index))}

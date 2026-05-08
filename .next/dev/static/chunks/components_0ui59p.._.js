@@ -230,7 +230,7 @@ function MainHero() {
     const [clicked, setClicked] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const handleClick = (i)=>{
         setClicked(i);
-        setTimeout(()=>setClicked(null), 1200);
+        setTimeout(()=>setClicked(null), 300);
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "main-hero",
@@ -721,24 +721,17 @@ function GlobalStyles() {
         filter: brightness(1.2);
       }
  
-      /* ── Click — float3DPulse burst ─────────────────── */
+      /* ── Click — smooth scale ─────────────────── */
       .word-block.clicked {
-        animation: float3DPulse 1.2s ease-out forwards !important;
+        animation: clickScale 0.3s ease-out forwards !important;
       }
- 
-      @keyframes float3DPulse {
+
+      @keyframes clickScale {
         0%  {
-          transform:translateY(0)     translateZ(0)    scale(1)    rotateX(0deg)  rotateY(0deg);
+          transform: scale(1);
         }
-        20% {
-          transform:translateY(-40px) translateZ(80px) scale(1.15) rotateX(20deg) rotateY(10deg);
-          text-shadow:0 30px 60px rgba(255,0,0,0.8), 0 0 50px rgba(255,255,255,0.5);
-        }
-        40% { transform:translateY(-35px) translateZ(70px) scale(1.12) rotateX(18deg) rotateY(8deg); }
-        60% { transform:translateY(-30px) translateZ(60px) scale(1.10) rotateX(15deg) rotateY(5deg); }
-        80% { transform:translateY(-25px) translateZ(50px) scale(1.08) rotateX(12deg) rotateY(3deg); }
         100%{
-          transform:translateY(-20px) translateZ(40px) scale(1.05) rotateX(10deg) rotateY(2deg);
+          transform: scale(1.05);
           text-shadow:0 20px 40px rgba(255,0,0,0.6), 0 0 30px rgba(255,255,255,0.3);
         }
       }
@@ -1333,9 +1326,9 @@ const GuestsCarousel = ()=>{
                                 scale: 1.04
                             },
                             transition: {
-                                type: "spring",
-                                stiffness: 180,
-                                damping: 22
+                                type: "tween",
+                                duration: 0.3,
+                                ease: "easeOut"
                             },
                             onMouseEnter: ()=>handleCardOpen(index),
                             onMouseLeave: ()=>handleCardClose(),
