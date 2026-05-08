@@ -10,7 +10,7 @@ const lines = [
 ];
 
 export default function TerminalIntro() {
-  const [displayed, setDisplayed] = useState([]);
+  const [displayed, setDisplayed] = useState<string[]>([]);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
